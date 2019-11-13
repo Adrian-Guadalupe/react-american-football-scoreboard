@@ -8,6 +8,8 @@ function App() {
 
   const [homeScore, setHomeScore] = useState(0);
   const [awayScore, setAwayScore] = useState(0);
+  const [currentDown, setCurrentDown] = useState(3);
+  const [quarter, setQuarter] = useState(4);
 
   // Home Buttons Functionality
   const homeTouchdown = () => setHomeScore(homeScore + 7);
@@ -16,6 +18,11 @@ function App() {
   // Away Buttons Functionality
   const awayTouchdown = () => setAwayScore(awayScore + 7);
   const awayFieldgoal = () => setAwayScore(awayScore + 3);
+
+  // Scoreboard Functionality Buttons
+  const nextDown = () => setCurrentDown(currentDown + 1);
+  const nextQuarter = () => setQuarter(quarter + 1);
+
 
   return (
     <div className="container">
@@ -45,6 +52,14 @@ function App() {
         <div className="awayButtons">
           <button className="awayButtons__touchdown" onClick={awayTouchdown}>Away Touchdown</button>
           <button className="awayButtons__fieldGoal" onClick={awayFieldgoal}>Away Field Goal</button>
+        </div>
+      </section>
+
+      {/* Stretch */}
+      <section className="scoreboard__functionality">
+        <div className="scoreboard__functionality__buttons">
+          <button className="down_button">Down</button>
+          <button className="quarter_button">Quarter</button>
         </div>
       </section>
     </div>
